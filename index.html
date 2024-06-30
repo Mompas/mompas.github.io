@@ -7,11 +7,23 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 50px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
         }
         form {
             max-width: 400px;
-            margin: auto;
+            width: 100%;
         }
         label {
             display: block;
@@ -32,21 +44,30 @@
         input[type="submit"]:hover {
             background-color: #45a049;
         }
+        .version {
+            text-align: center;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
-    <h1>Security Check</h1>
-    <form id="securityCheckForm" action="/check" method="POST">
-        <label for="domain">Domain:</label>
-        <input type="text" id="domain" name="domain" placeholder="example.com" required>
-        
-        <label for="check_type">Select check type:</label>
-        <select id="check_type" name="check_type" required>
-            <option value="csrf">CSRF Tokens</option>
-            <option value="cookies">Loosely Scoped Cookies</option>
-        </select>
-        
-        <input type="submit" value="Submit">
-    </form>
+    <main>
+        <h1>Security Check</h1>
+        <form id="securityCheckForm" action="/check" method="POST">
+            <label for="domain">Domain:</label>
+            <input type="text" id="domain" name="domain" placeholder="example.com" required>
+            
+            <label for="check_type">Select check type:</label>
+            <select id="check_type" name="check_type" required>
+                <option value="csrf">CSRF Tokens</option>
+                <option value="cookies">Loosely Scoped Cookies</option>
+            </select>
+            
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+    <div class="version">Version 0.00 - More features coming soon!</div>
 </body>
 </html>
